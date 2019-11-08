@@ -44,14 +44,14 @@ public class EntityRepo {
 			// the mysql insert statement
 
 			Context initContext = new InitialContext();
-			// Context envContext = (Context)
+			//Context envContext = (Context)
 			// initContext.lookup("java:jdbc/DB");
-			/*
-			 * DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
-			 * = ds.getConnection();
-			 */
+			
+			 DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
+			 = ds.getConnection();
+			 
 
-			con=JDBCUtility.getConnection();
+			//con=JDBCUtility.getConnection();
 			String query = "INSERT INTO ACCOUNT_NUMBER (EFF_TMSTP, EXTERNAL_ID_NBR, TYPE_CD, EXPR_TMSTP, OBJ_ID) VALUES(?,?,?,?,?)";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -76,14 +76,14 @@ public class EntityRepo {
 	public void addAddress(AccountDao account) {
 		try {
 
-			// Context initContext = new InitialContext();
+			 Context initContext = new InitialContext();
 			// Context envContext = (Context)
 			// initContext.lookup("java:jdbc/DB");
-			// DataSource ds =(DataSource) initContext.lookup("jdbc/mydb");
-			// con = ds.getConnection();
+			DataSource ds =(DataSource) initContext.lookup("jdbc/mydb");
+			con = ds.getConnection();
 
 			// the mysql insert statement
-			con=JDBCUtility.getConnection();
+			// con=JDBCUtility.getConnection();
 			String sql = "INSERT INTO ADDRESS (EFF_TMSTP,OBJ_ID,CUST_VIEW_CD,CUST_MODEL_CD, ADD_TYPE_CD,ADDR_LINE_1_DESC,ADDR_LINE_2_DESC,ADDR_LINE_3_DESC,"
 					+ "CITY_NM,STATE_PROVINCE_NM,PSTL_CD,CNTRY_CD,EXPR_TMSTP) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement preparedStmt = con.prepareStatement(sql);
@@ -116,14 +116,14 @@ public class EntityRepo {
 
 	public void addCompany(AccountDao account) {
 		try {
-			// Context initContext = new InitialContext();
+			Context initContext = new InitialContext();
 			// Context envContext = (Context)
 			// initContext.lookup("java:jdbc/DB");
-			/*
-			 * DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
-			 * = ds.getConnection();
-			 */
-			con=JDBCUtility.getConnection();
+		
+			 DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
+			 = ds.getConnection();
+			
+			// con=JDBCUtility.getConnection();
 			// the mysql insert statement
 			String sql = "INSERT INTO COMPANY_NAME (EFF_TMSTP,OBJ_ID,CUST_VIEW_CD,CUST_MODEL_CD, CMP_TYPE_CD,EXPR_TMSTP,NAME_DESC) VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement preparedStmt = con.prepareStatement(sql);
@@ -149,14 +149,14 @@ public class EntityRepo {
 
 	public void addPhone(AccountDao account) {
 		try {
-			// Context initContext = new InitialContext();
+			Context initContext = new InitialContext();
 			// Context envContext = (Context)
 			// initContext.lookup("java:jdbc/DB");
-			/*
-			 * DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
-			 * = ds.getConnection();
-			 */
-			con=JDBCUtility.getConnection();
+			
+			DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
+			= ds.getConnection();
+			
+			// con=JDBCUtility.getConnection();
 			String sql = "INSERT INTO PHONE (EFF_TMSTP,OBJ_ID,CUST_VIEW_CD,CUST_MODEL_CD, PH_TYPE_CD,TEL_INTL_CD,TEL_AREA_CD,TEL_NBR,TEL_EXT_NBR,EXPR_TMSTP) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStmt = con.prepareStatement(sql);
@@ -192,12 +192,12 @@ public class EntityRepo {
 			Context initContext = new InitialContext();
 			// Context envContext = (Context)
 			// initContext.lookup("java:jdbc/DB");
-			/*
-			 * DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
-			 * = ds.getConnection();
-			 */
+		
+			 DataSource ds =(DataSource) initContext.lookup("jdbc/mydb"); con
+			 = ds.getConnection();
+			
 			//con=AppConfig.getConnection();
-			con=JDBCUtility.getConnection();
+			// con=JDBCUtility.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt
 					.executeQuery("select count(*) from ACCOUNT_NUMBER where OBJ_ID = "
